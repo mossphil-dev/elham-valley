@@ -53,15 +53,37 @@ function initStagger() {
 }
 
 // Hero slideshow
+let heroInterval;
+let heroCurrent = 0;
+
 function initHeroSlideshow() {
   const slides = document.querySelectorAll('.hero-slide');
   if (slides.length < 2) return;
-  let current = 0;
-  setInterval(() => {
-    slides[current].classList.remove('active');
-    current = (current + 1) % slides.length;
-    slides[current].classList.add('active');
-  }, 6000);
+  heroInterval = setInterval(nextSlide, 6000);
+}
+
+function nextSlide() {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  if (slides.length < 2) return;
+  slides[heroCurrent].classList.remove('active');
+  if (dots[heroCurrent]) dots[heroCurrent].classList.remove('active');
+  heroCurrent = (heroCurrent + 1) % slides.length;
+  slides[heroCurrent].classList.add('active');
+  if (dots[heroCurrent]) dots[heroCurrent].classList.add('active');
+}
+
+function goSlide(i) {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  if (slides.length < 2) return;
+  clearInterval(heroInterval);
+  slides[heroCurrent].classList.remove('active');
+  if (dots[heroCurrent]) dots[heroCurrent].classList.remove('active');
+  heroCurrent = i;
+  slides[heroCurrent].classList.add('active');
+  if (dots[heroCurrent]) dots[heroCurrent].classList.add('active');
+  heroInterval = setInterval(nextSlide, 6000);
 }
 
 // Init
