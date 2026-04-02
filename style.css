@@ -63,6 +63,8 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
 /* DROPDOWN */
 .nav-dropdown {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 .nav-dropdown > a::after {
   content: ' \25BE'; font-size: 10px;
