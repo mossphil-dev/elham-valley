@@ -170,8 +170,9 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
   font-family: var(--sans); cursor: pointer; border: none;
   letter-spacing: 0.3px;
 }
-.btn-gold { background: var(--gold); color: var(--white); }
+.btn-gold { background: var(--gold); color: var(--white); border: none; outline: none; }
 .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,160,74,0.25); }
+.btn-gold:focus { outline: none; }
 .btn-outline { border: 1.5px solid rgba(255,255,255,0.4); color: var(--white); background: none; }
 .btn-outline:hover { background: var(--white); color: var(--dark); border-color: var(--white); transform: translateY(-2px); }
 .btn-green { background: var(--green); color: var(--white); }
