@@ -157,10 +157,10 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
 }
 .hero-tag {
   display: inline-block; padding: 6px 16px; border-radius: 100px;
-  background: rgba(200,160,74,0.15); color: var(--gold);
-  font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+  background: none; color: rgba(255,255,255,0.6);
+  font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
   text-transform: uppercase; margin-bottom: 20px;
-  border: 1px solid rgba(200,160,74,0.2);
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
 /* BUTTONS */
@@ -196,6 +196,7 @@ section:nth-child(even) { background: var(--white); }
   width: 40px; height: 3px; background: var(--green);
   margin-bottom: 16px; border-radius: 2px;
   transition: width 0.4s ease;
+  border: none; outline: none;
 }
 .reveal.visible .gold-line { width: 60px; }
 
