@@ -340,7 +340,7 @@ footer {
 .page-hero-img {
   max-height: 400px; overflow: hidden;
 }
-.page-hero-img img { width: 100%; object-fit: cover; object-position: center; display: block; }
+.page-hero-img img { width: 100%; object-fit: cover; object-position: center 65%; display: block; }
 
 /* PAGE HEADING (below image) */
 .page-heading {
