@@ -104,8 +104,23 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
 /* HERO */
 .hero {
   position: relative; min-height: 600px;
-  background-size: cover; background-position: center;
   display: flex; align-items: center;
+  overflow: hidden;
+}
+.hero-slide {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0; transition: opacity 1.5s ease;
+  transform: scale(1.05);
+  animation: none;
+}
+.hero-slide.active {
+  opacity: 1;
+  animation: heroZoom 8s ease forwards;
+}
+@keyframes heroZoom {
+  from { transform: scale(1.05); }
+  to { transform: scale(1); }
 }
 .hero-overlay {
   position: absolute; inset: 0;
