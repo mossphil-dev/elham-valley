@@ -6,6 +6,38 @@
   <title>Blog — Elham Valley Line Trust</title>
   <meta name="description" content="News and stories from the Elham Valley Line Trust. Updates on events, restoration work and heritage preservation.">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .blog-card { cursor: pointer; }
+    .blog-modal {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
+      align-items: center; justify-content: center; padding: 24px;
+    }
+    .blog-modal.open { display: flex; }
+    .blog-modal-content {
+      background: var(--white); border-radius: 16px; max-width: 800px; width: 100%;
+      max-height: 90vh; overflow-y: auto; position: relative;
+      animation: modalIn 0.3s ease;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(20px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .blog-modal-img { width: 100%; height: 300px; object-fit: cover; border-radius: 16px 16px 0 0; }
+    .blog-modal-body { padding: 32px; }
+    .blog-modal-body .date { font-size: 13px; color: var(--gold); font-weight: 600; margin-bottom: 8px; }
+    .blog-modal-body h2 { font-family: var(--serif); font-size: 28px; color: var(--dark); margin-bottom: 16px; line-height: 1.3; }
+    .blog-modal-body p { margin-bottom: 14px; font-size: 15px; line-height: 1.8; color: var(--text); }
+    .blog-close {
+      position: absolute; top: 16px; right: 16px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(0,0,0,0.5); color: white; border: none;
+      font-size: 20px; cursor: pointer; display: flex;
+      align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .blog-close:hover { background: rgba(0,0,0,0.8); }
+  </style>
 </head>
 <body>
 
@@ -38,17 +70,29 @@
   <section>
     <div class="wrap">
       <div class="grid-3">
-        <div class="card reveal">
+
+        <div class="card reveal blog-card" onclick="openBlog('new-website')">
+          <div class="card-img"><img src="images/station-button.jpg" alt="New Website"></div>
+          <div class="card-body">
+            <div style="font-size:12px;color:var(--gold);font-weight:600;margin-bottom:6px">April 2025</div>
+            <h3>A Brand New Website for the Trust</h3>
+            <p>We are excited to unveil our completely redesigned website, built to make planning your visit simpler than ever.</p>
+            <span class="card-link">Read more &rarr;</span>
+          </div>
+        </div>
+
+        <div class="card reveal blog-card" onclick="openBlog('season-opens')">
           <div class="card-img"><img src="images/IMG_0358.jpg" alt="2025 Season"></div>
           <div class="card-body">
             <div style="font-size:12px;color:var(--gold);font-weight:600;margin-bottom:6px">5 April 2025</div>
             <h3>2025 Season Opens</h3>
-            <p>We're delighted to welcome visitors back for the 2025 season. With a packed calendar of events, there's something for everyone this year.</p>
+            <p>We are delighted to welcome visitors back for the 2025 season. With a packed calendar of events, there is something for everyone.</p>
             <span class="card-link">Read more &rarr;</span>
           </div>
         </div>
-        <div class="card reveal">
-          <div class="card-img"><img src="images/Georges-Barn.gif" alt="George's Barn"></div>
+
+        <div class="card reveal blog-card" onclick="openBlog('new-chapter')">
+          <div class="card-img"><img src="images/Georges-Barn.gif" alt="New Chapter"></div>
           <div class="card-body">
             <div style="font-size:12px;color:var(--gold);font-weight:600;margin-bottom:6px">March 2025</div>
             <h3>A New Chapter for the Trust</h3>
@@ -56,18 +100,92 @@
             <span class="card-link">Read more &rarr;</span>
           </div>
         </div>
-        <div class="card reveal">
-          <div class="card-img"><img src="images/station-button.jpg" alt="Railway Museum"></div>
+
+        <div class="card reveal blog-card" onclick="openBlog('volunteers')">
+          <div class="card-img"><img src="images/plant.jpg" alt="Volunteers"></div>
           <div class="card-body">
             <div style="font-size:12px;color:var(--gold);font-weight:600;margin-bottom:6px">February 2025</div>
             <h3>Volunteer Spotlight</h3>
-            <p>Meet the dedicated volunteers who keep the trust running. From maintaining the grounds to driving the miniature train, every contribution matters.</p>
+            <p>Meet the dedicated volunteers who keep the trust running. From maintaining the grounds to driving the miniature train.</p>
             <span class="card-link">Read more &rarr;</span>
           </div>
         </div>
+
       </div>
     </div>
   </section>
+
+  <!-- BLOG MODALS -->
+  <div class="blog-modal" id="modal-new-website" onclick="if(event.target===this)closeBlog()">
+    <div class="blog-modal-content">
+      <button class="blog-close" onclick="closeBlog()">&times;</button>
+      <img src="images/station-button.jpg" alt="New Website" class="blog-modal-img">
+      <div class="blog-modal-body">
+        <div class="date">April 2025</div>
+        <h2>A Brand New Website for the Trust</h2>
+        <p>We are thrilled to announce the launch of our completely redesigned website. After many years with our original site, we felt it was time for a fresh start that truly reflects the spirit of the Elham Valley Line Trust and makes it easier than ever for visitors to plan their trip.</p>
+        <p>The new site has been built from the ground up with a modern, clean design that works beautifully on phones, tablets and desktops. Whether you are checking our opening times on the go or browsing our event calendar from your sofa, the experience is now seamless.</p>
+        <p>Key features of the new site include:</p>
+        <ul style="margin:0 0 16px 20px;line-height:2">
+          <li>A fully responsive design that adapts to any screen size</li>
+          <li>Expanded information on all our attractions including George's Barn, the Railway Museum and the Tangled Trail</li>
+          <li>A dedicated events page with our full 2025 calendar</li>
+          <li>An interactive map to help you find us</li>
+          <li>This blog, where we will share news, stories and updates from the trust</li>
+        </ul>
+        <p>We would love to hear your thoughts on the new design. If you have any feedback or spot anything that needs fixing, please do not hesitate to get in touch at <a href="mailto:volunteers@elhamvalleylinetrust.org" style="color:var(--gold);font-weight:600">volunteers@elhamvalleylinetrust.org</a>.</p>
+        <p>We look forward to welcoming you this season!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-modal" id="modal-season-opens" onclick="if(event.target===this)closeBlog()">
+    <div class="blog-modal-content">
+      <button class="blog-close" onclick="closeBlog()">&times;</button>
+      <img src="images/IMG_0358.jpg" alt="2025 Season" class="blog-modal-img">
+      <div class="blog-modal-body">
+        <div class="date">5 April 2025</div>
+        <h2>2025 Season Opens</h2>
+        <p>Spring is here and we are delighted to throw open the gates for another wonderful season at the Elham Valley Line Trust. Our dedicated team of volunteers has been hard at work over the winter months preparing the grounds, refreshing displays and getting everything ready for your visit.</p>
+        <p>This year promises to be one of our best yet, with a packed calendar of special events running from Easter right through to November. Highlights include our ever-popular Easter Bunny Hunt, the Miniature Steam Week in May, and our Summer Fayre in August.</p>
+        <p>For families, we have expanded our activities with new interactive displays in George's Barn and additional trail activities along the Tangled Trail. The dipping pond has been refreshed and is ready for young explorers to discover the creatures that call it home.</p>
+        <p>We are open every Saturday, Sunday and Bank Holiday from 10am to 4pm. Admission prices remain unchanged, and car parking at George's Barn continues to be free.</p>
+        <p>We cannot wait to see you this season. Whether you are a returning friend or visiting for the first time, there is always something new to discover at the Elham Valley Line Trust.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-modal" id="modal-new-chapter" onclick="if(event.target===this)closeBlog()">
+    <div class="blog-modal-content">
+      <button class="blog-close" onclick="closeBlog()">&times;</button>
+      <img src="images/Georges-Barn.gif" alt="New Chapter" class="blog-modal-img">
+      <div class="blog-modal-body">
+        <div class="date">March 2025</div>
+        <h2>A New Chapter for the Trust</h2>
+        <p>As we step into 2025, the Elham Valley Line Trust is embarking on an exciting new chapter. After more than four decades of preserving railway history and countryside heritage, we are refreshing our identity whilst staying true to the values that have guided us since 1984.</p>
+        <p>The trust was originally formed by a group of passionate local historians determined to preserve the memory of the Elham Valley railway line, which ran from Canterbury to Folkestone between 1889 and 1947. What began as a small preservation effort has grown into a thriving heritage centre with two distinct sites, a nature trail, and a calendar of events that draws visitors from across Kent and beyond.</p>
+        <p>Our new name reflects the broader scope of what we offer today. While the railway remains at our heart, George's Barn and the Countryside Centre have become equally important parts of our story. The 290-year-old barn, rescued from the Channel Tunnel construction site, now houses a remarkable collection of rural tools, crafts and household items that bring the past to life.</p>
+        <p>Looking ahead, we have ambitious plans for the coming years. These include improving accessibility across both sites, expanding our educational programmes, and continuing to develop our partnership with the Wheels of Time network of Kent heritage sites.</p>
+        <p>None of this would be possible without our incredible volunteers who give their time so generously. If you would like to be part of this new chapter, we would love to hear from you.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-modal" id="modal-volunteers" onclick="if(event.target===this)closeBlog()">
+    <div class="blog-modal-content">
+      <button class="blog-close" onclick="closeBlog()">&times;</button>
+      <img src="images/plant.jpg" alt="Volunteers" class="blog-modal-img">
+      <div class="blog-modal-body">
+        <div class="date">February 2025</div>
+        <h2>Volunteer Spotlight</h2>
+        <p>The Elham Valley Line Trust is run entirely by volunteers, and every single one of them plays a vital role in keeping this special place alive. From maintaining the buildings and grounds to welcoming visitors and running the tea room, our team gives thousands of hours each year to the trust.</p>
+        <p>Volunteering at the trust is about more than just work. It is a community. Our volunteers come from all walks of life and range in age from teenagers gaining work experience to retirees sharing decades of knowledge and enthusiasm. What they all have in common is a love for heritage and a desire to share it with others.</p>
+        <p>There are all sorts of ways to get involved. If you enjoy being outdoors, you could help maintain the grounds, tend the gardens or keep the Tangled Trail in shape. If you prefer meeting people, the tea room and ticket desk are always looking for friendly faces. For those with practical skills, there is always restoration and maintenance work to be done on the buildings and displays.</p>
+        <p>Perhaps the most coveted role is driving the miniature train. Our train drivers undergo training and take great pride in giving visitors a memorable ride around the grounds. If that sounds like your cup of tea, we would love to hear from you.</p>
+        <p>If you are interested in volunteering, no matter how much time you can offer, please email <a href="mailto:volunteers@elhamvalleylinetrust.org" style="color:var(--gold);font-weight:600">volunteers@elhamvalleylinetrust.org</a> or call 01303 273014. You can also speak to any of our volunteers during a visit.</p>
+      </div>
+    </div>
+  </div>
 
   <div class="cta">
     <div class="wrap">
@@ -105,5 +223,16 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    function openBlog(id) {
+      document.getElementById('modal-' + id).classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeBlog() {
+      document.querySelectorAll('.blog-modal').forEach(m => m.classList.remove('open'));
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBlog(); });
+  </script>
 </body>
 </html>
