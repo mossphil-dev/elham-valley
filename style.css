@@ -195,6 +195,32 @@ section:nth-child(even) { background: var(--white); }
 }
 .stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; font-weight: 500; }
 
+/* REVIEW CAROUSEL */
+.review-track {
+  display: flex; gap: 24px;
+  animation: reviewScroll 30s linear infinite;
+  padding: 8px 0;
+  width: max-content;
+}
+.review-track:hover { animation-play-state: paused; }
+.review-slide {
+  flex-shrink: 0; width: 340px;
+  background: var(--cream); border-radius: var(--radius);
+  padding: 28px; text-align: left;
+  border: 1px solid var(--border);
+}
+.review-slide p {
+  font-style: italic; color: var(--text); font-size: 14px;
+  line-height: 1.7; font-weight: 300;
+}
+.review-author {
+  margin-top: 14px; font-size: 12px; font-weight: 600; color: var(--dark);
+}
+@keyframes reviewScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 /* TIMELINE */
 .timeline { position: relative; padding-left: 36px; }
 .timeline::before {
