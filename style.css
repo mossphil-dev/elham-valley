@@ -124,7 +124,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
 }
 .hero-dots {
   position: absolute; bottom: 28px; left: 50%;
-  transform: translateX(-50%); z-index: 2;
+  transform: translateX(-50%); z-index: 10;
   display: flex; gap: 10px;
 }
 .hero-dot {
@@ -192,7 +192,7 @@ section:nth-child(even) { background: var(--white); }
 }
 .section-sub { color: var(--muted); font-size: 15px; margin-bottom: 40px; font-weight: 300; }
 .gold-line {
-  width: 40px; height: 3px; background: var(--gold);
+  width: 40px; height: 3px; background: var(--green);
   margin-bottom: 16px; border-radius: 2px;
   transition: width 0.4s ease;
 }
@@ -334,7 +334,26 @@ footer {
 .footer-grid a:hover { color: var(--gold); padding-left: 4px; }
 .footer-copy { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 12px; text-align: center; color: rgba(255,255,255,0.3); }
 
-/* PAGE HERO */
+/* PAGE HERO IMAGE */
+.page-hero-img {
+  max-height: 400px; overflow: hidden;
+}
+.page-hero-img img { width: 100%; object-fit: cover; object-position: center; display: block; }
+
+/* PAGE HEADING (below image) */
+.page-heading {
+  background: var(--white); padding: 36px 0 32px;
+  border-bottom: 1px solid var(--border);
+}
+.page-heading h1 {
+  font-family: var(--serif); font-size: clamp(30px, 4vw, 44px);
+  font-weight: 700; color: var(--dark); letter-spacing: -0.3px;
+}
+.page-heading p {
+  font-size: 15px; color: var(--muted); margin-top: 8px; font-weight: 300;
+}
+
+/* PAGE HERO (fallback for pages without images) */
 .page-hero {
   background: var(--green); padding: 120px 0 56px;
   position: relative; overflow: hidden;
