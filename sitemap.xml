@@ -71,4 +71,39 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://elhamvalleylinetrust.org/blog/kent-business-partnership-vinyl-biz/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://elhamvalleylinetrust.org/blog/new-website/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://elhamvalleylinetrust.org/blog/2025-season-opens/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://elhamvalleylinetrust.org/blog/new-chapter-for-the-trust/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://elhamvalleylinetrust.org/blog/volunteer-spotlight/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
 </urlset>
